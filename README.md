@@ -1,1 +1,4 @@
-# Excel_tips
+# Excel tips and tricks
+
+##Cleaning a dataset
+
