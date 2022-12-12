@@ -4,27 +4,19 @@
 
 ###Step 1 Remove duplicates
 
-Go to `Data` > `Sort & Filter` > `Advanced`
-
-Then select `filter the list in place`
-
-Check `Unique records only`
-
-Click `OK`
-
-Then to clear the filter
-
-Go to `Data` > `Filter`
+1. Go to `Data` > `Sort & Filter` > `Advanced`
+2. Then select `filter the list in place`
+3. Check `Unique records only`
+4. Click `OK`
+5. Then to clear the filter
+6. Go to `Data` > `Filter`
 
 ###Step 2 Replace empty cells
 
-Make sure to only select the area containing data.
-
-Use the `Find` function (magnify glass, top right). Click on `Replace`.
-
-Leave `Find` blank and type _null_ in Replace. 
-
-Click on `Replace All`.
+1. Make sure to only select the area containing data.
+2. Use the `Find` function (magnify glass, top right). Click on `Replace`.
+3. Leave `Find` blank and type _null_ in Replace. 
+4. Click on `Replace All`.
 
 ###Step 3 Remove corrupted data
 
