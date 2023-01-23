@@ -117,8 +117,25 @@ To get the time, type `=NOW()`, then press Return.
 
 Add and subtract times, EG `=((D35-D32)-(D34-D33))*24` - the 24 converts into hours. Make sure that this cell is formatted to Number and not Time.
 
+### IF Statements
 
+`IF` statements enable you to make logical comparisons between conditions, eg `=IF(A12="Apple",TRUE,FALSE)`
 
+`TRUE` and `FASLE` don't need to be in quotes but `"Yes"` and `"no"` would need quotes. 
+
+Numbers also don't need quotes. `=IF(A12>=100,"Yes","No")`
+
+`IF` can also force another calcuation if a conditin is met, eg `=IF(A12>=100,"Yes","No")`
+
+`=IF(A12="Yes",A11*Shipping,0)` This multiplies A11 by the Shipping costs, if the condition is `No` then it returns 0.
+
+Shipping is a Named Range and this is set using `Formulas` > `Define Name` This means that you only need to change it once for the entire workbook.
+
+<img width="259" alt="image" src="https://user-images.githubusercontent.com/117950069/214031314-f4f8021c-5a28-4876-b748-b1a6337a4188.png">
+
+### VLOOKUP Statements
+
+`VLOOKUP` lets you look up a value in a column on the left, then returns information in another column to the right if it finds a match
 
 
 
