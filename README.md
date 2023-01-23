@@ -185,6 +185,20 @@ Syntax is `=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [m
 |  | 2 - Perform a binary search that relies on lookup_array being sorted in ascending order. If not sorted, invalid results will be returned. |
 |  | -2 - Perform a binary search that relies on lookup_array being sorted in descending order. If not sorted, invalid results will be returned. |
 
+eg `=XLOOKUP(F2,B2:B11,D2:D11)` Search cell `F2` for the value in the range `B2:B11` and return the value that matches this in the range `D2:D11`
+
+`XLOOKUP` can return several values, so you can search `D2:E11` in `=XLOOKUP(F2,B2:B11,D2:E11)`
+
+Add an "not found" argument, `D2:E11` in `=XLOOKUP(F2,B2:B11,D2:E11,"Id not found")`
+
+eg `=XLOOKUP(E2,C2:C7,B2:B7,0,1,1)`
+
+It sets the if_not_found argument to return 0 (zero) if nothing is found. 
+The match_mode argument is set to 1, which means the function will look for an exact match, and if it can't find one, it returns the next larger item. 
+Finally, the search_mode argument is set to 1, which means the function will search from the first item to the last.
+
+More complex, used in a `SUM` function `=SUM(XLOOKUP(B3,B6:B10,E6:E10):XLOOKUP(C3,B6:B10,E6:E10))'
+
 ### Conditional Statements
 
 eg `SUMIF` `SUMIFS` `COUNTIF` `COUNTIFS`
@@ -226,5 +240,3 @@ Others include `AVERAGEIF` `AVERAGEIFS` `MAXIFS` and `MINIFS`
 ### Problems with formulas
 
 If there is an error, use `Error-checking` option under `Formulas` to help with finding a solution. 
-
-## Pivot tables
