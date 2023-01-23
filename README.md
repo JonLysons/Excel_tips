@@ -170,49 +170,20 @@ Syntax is `=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [m
 |return_array | The array or range to return |
 | Required |   |
 | --- | --- |
-[if_not_found] |
-	
-
-
-
-
-
-Optional
-	
-
-Where a valid match is not found, return the [if_not_found] text you supply.
-
-If a valid match is not found, and [if_not_found] is missing, #N/A is returned.
-
-[match_mode]
-
-Optional
-	
-
-Specify the match type:
-
-0 - Exact match. If none found, return #N/A. This is the default.
-
--1 - Exact match. If none found, return the next smaller item.
-
-1 - Exact match. If none found, return the next larger item.
-
-2 - A wildcard match where *, ?, and ~ have special meaning.
-
-[search_mode]
-
-Optional
-	
-
-Specify the search mode to use:
-
-1 - Perform a search starting at the first item. This is the default.
-
--1 - Perform a reverse search starting at the last item.
-
-2 - Perform a binary search that relies on lookup_array being sorted in ascending order. If not sorted, invalid results will be returned.
-
--2 - Perform a binary search that relies on lookup_array being sorted in descending order. If not sorted, invalid results will be returned.
+| [if_not_found] | Where a valid match is not found, return the [if_not_found] text you supply. |
+| Optional | If a valid match is not found, and [if_not_found] is missing, #N/A is returned. |
+| --- | --- |
+| [match_mode] | Specify the match type: |
+| Optional| |0 - Exact match. If none found, return #N/A. This is the default. |
+|  | -1 - Exact match. If none found, return the next smaller item. |
+|  | 1 - Exact match. If none found, return the next larger item. |
+|  | 2 - A wildcard match where *, ?, and ~ have special meaning. |
+| --- | --- |
+| [search_mode] | Specify the search mode to use: |
+| Optional | 1 - Perform a search starting at the first item. This is the default. |
+|  | -1 - Perform a reverse search starting at the last item. |
+|  | 2 - Perform a binary search that relies on lookup_array being sorted in ascending order. If not sorted, invalid results will be returned. |
+|  | -2 - Perform a binary search that relies on lookup_array being sorted in descending order. If not sorted, invalid results will be returned. |
 
 ### Conditional Statements
 
