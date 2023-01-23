@@ -81,39 +81,49 @@ First fix the column heads in place
 
 ### The Basics
 
-To Add, select cell F3, type =C3+C4, then press Return. 
+To Add, select cell F3, type `=C3+C4`, then press Return. 
 
-To Subtract, select cell F4, type =C3-C4, then press Return. 
+To Subtract, select cell F4, type `=C3-C4`, then press Return. 
 
-To Multiply, select cell F5, type =C3*C4, then press Return.
+To Multiply, select cell F5, type `=C3*C4`, then press Return.
 
-To Divide, select cell F6, type =C3/C4, then press Return.
+To Divide, select cell F6, type `=C3/C4`, then press Return.
 
-To raise a value to a power, select cell F6, type =C3^F6, then press Return.
+To raise a value to a power, select cell F6, type `=C3^F6`, then press Return.
 
-To add a range of cells, type =SUM(A1:A6), then press Return. Additional arguments use a comma, eg =SUM(A1:A6,B1:B6)
+To add a range of cells, type `=SUM(A1:A6)`, then press Return. Additional arguments use a comma, eg `=SUM(A1:A6,B1:B6)`
 
-To count the number of cells, type =COUNT(A1:A6), then press Return.
+To count the number of cells, type `=COUNT(A1:A6)`, then press Return.
 
-=MEDIAN(A1:A6) gives the middle number in a list.
+`=MEDIAN(A1:A6)` gives the middle number in a list.
 
-=MODE(A1:A6) gives the most common number in a list.
+`=MODE(A1:A6)` gives the most common number in a list.
 
-Use the MIN function to get the smallest number in a range of cells. EG =MIN(A1:A6)
+Use the `MIN` function to get the smallest number in a range of cells. EG `=MIN(A1:A6)`
 
-Use the MAX function to get the largest number in a range of cells. EG =MAX(A1:A6)
+Use the `MAX` function to get the largest number in a range of cells. EG `=MAX(A1:A6)`
 
-Additional arguments use a comma, eg =MAX(A1:A6,B1:B6)
+Additional arguments use a comma, eg `=MAX(A1:A6,B1:B6)`
 
 ### Time Functions
 
-To get today's date, type =TODAY(), then press Return.
+To get today's date, type `=TODAY()`, then press Return.
 
-To get the time, type =NOW(), then press Return.
+To get the time, type `=NOW()`, then press Return.
 
-Add and subtract times, EG =((D35-D32)-(D34-D33))*24 ----- the 24 converts into hours. Make sure that this cell is formatted to Number and not Time.
+Add and subtract times, EG `=((D35-D32)-(D34-D33))*24` - the 24 converts into hours. Make sure that this cell is formatted to Number and not Time.
 
 ### Joining and splitting cells
+
+To join cells, use `&` EG `=D3&D4`
+
+To add a space or comma, do this `=D3&", "&D4` - note the use of & after the first cell and before the second cell.
+
+To join date and time, try this `=C28& " " &TEXT(D28, "DD,MM,YY")` - The `TEXT` function changes the format of the cell to text.
+
+More complex, `=TEXT(C28, "HH/MM AM/PM")& " " &TEXT(D28, "DD,MM,YY")`
+
+
 
 
 
