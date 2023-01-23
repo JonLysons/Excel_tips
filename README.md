@@ -51,7 +51,7 @@ First fix the column heads in place
 2. In the new columnn type:
 3. For lower case `=TRIM(cell)`
 
-### Step 7 Split data into separate columns
+### Step 7 Split and Join data
 
 1. Create a new column
 2. In the new columnn type:
@@ -60,8 +60,12 @@ First fix the column heads in place
 5. If date and time in the same cell, format the column to either Date or Time 
 6. Then in the first column type `=INT(A2)` This produces just the date
 7. In the next column, subtract the new date from the original cell, eg `=A2-C2`
-8. Or use `=TEXT(A2,"mm/dd/yyyy")` and `=TEXT(A2,"hh:mm")`
+8. Or use `=TEXT(A2,"mm/dd/yyyy")` and `=TEXT(A2,"hh:mm")` - The `TEXT` function changes the format of the cell to text.
 9. Or use `Text to Columns` under Data in the menu, make sure to specify the cell for the first part of the data.
+10. To join cells, use `&` EG `=D3&D4`
+11. To add a space or comma, do this `=D3&", "&D4` - note the use of & after the first cell and before the second cell.
+12. To join date and time, try this `=C28& " " &TEXT(D28, "DD,MM,YY")` 
+13. More complex, `=TEXT(C28, "HH/MM AM/PM")& " " &TEXT(D28, "DD,MM,YY")`
 
 ### Step 8 Join data into one column
 
@@ -113,15 +117,7 @@ To get the time, type `=NOW()`, then press Return.
 
 Add and subtract times, EG `=((D35-D32)-(D34-D33))*24` - the 24 converts into hours. Make sure that this cell is formatted to Number and not Time.
 
-### Joining and splitting cells
 
-To join cells, use `&` EG `=D3&D4`
-
-To add a space or comma, do this `=D3&", "&D4` - note the use of & after the first cell and before the second cell.
-
-To join date and time, try this `=C28& " " &TEXT(D28, "DD,MM,YY")` - The `TEXT` function changes the format of the cell to text.
-
-More complex, `=TEXT(C28, "HH/MM AM/PM")& " " &TEXT(D28, "DD,MM,YY")`
 
 
 
