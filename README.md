@@ -119,31 +119,43 @@ Add and subtract times, EG `=((D35-D32)-(D34-D33))*24` - the 24 converts into ho
 
 ### IF Statements
 
-`IF` statements enable you to make logical comparisons between conditions, eg `=IF(A12="Apple",TRUE,FALSE)`
+`IF` statements enable you to make logical comparisons between conditions, eg `=IF(A12="Apple",TRUE,FALSE)` If the condition is met, ie A12 equals Apple then True is returned, if the condition isn't met then False is returned.
 
 `TRUE` and `FASLE` don't need to be in quotes but `"Yes"` and `"no"` would need quotes. 
 
-Numbers also don't need quotes. `=IF(A12>=100,"Yes","No")`
+Numbers also don't need quotes. `=IF(A12>=100,"Yes","No")` 
 
-`IF` can also force another calcuation if a conditin is met, eg `=IF(A12>=100,"Yes","No")`
+`IF` can also force another calcuation if a conditin is met, eg `=IF(A12>=100,"Yes","No")` or `=IF(C2>B2,”Over Budget”,”Within Budget”)`
 
-`=IF(A12="Yes",A11*Shipping,0)` This multiplies A11 by the Shipping costs, if the condition is `No` then it returns 0.
+In this formula, `=IF(C2>B2,C2-B2,0)`, the result of a calculation is returned `C2-B2`, else return 0.
+
+`=IF(E7=”Yes”,F5*0.2,0)` This multiplies E7 by 0.2, if the condition is `No` then it returns 0.
+
+Or `=IF(A12="Yes",A11*Shipping,0)` This multiplies A11 by the Shipping costs, if the condition is `No` then it returns 0.
 
 Shipping is a Named Range and this is set using `Formulas` > `Define Name` This means that you only need to change it once for the entire workbook.
 
 <img width="259" alt="image" src="https://user-images.githubusercontent.com/117950069/214031314-f4f8021c-5a28-4876-b748-b1a6337a4188.png">
 
+Use the `IFS` function to check whether one or more conditions are met and returns a value that corresponds to the first TRUE condition.
+
+eg `=IFS(B2>=90,"A",B2>=70,"B",B2>=50,"C",B2<50,"D")
+
 ### VLOOKUP Statements
 
 `VLOOKUP` lets you look up a value in a column on the left, then returns information in another column to the right if it finds a match.
 
-eg `=VLOOKUP (A12,B12:C22,2,FALSE)` This looks for the data in `A12` and tries to fina a match in the data selected from B12 and C12, if it finds a match it moves to the column next and returns the data in that cell. `FALSE` here means an exact match.
+eg `=VLOOKUP (A12,B12:C22,2,FALSE)` This looks for the data in `A12` and tries to find a match in the data selected from B12 and C22, if it finds a match it moves to the column next to it (signified by the `2`) and returns the data in that cell. `FALSE` here means an exact match.
 
 If there isn't a match then `N/A` will be returned. To hide this, use an `IF` statement, eg `=IF(A12="","",VLOOKUP (A12,B12:C22,2,FALSE)`
 
 You can also use an `IFERROR` statement, eg `=IFERROR(VLOOKUP(A12,B12:C22,2,FALSE),"")`
 
 In both cases `""` is used to display nothing, but you can use text, eg `"Nothing to show"`.
+
+### XLOOKUP Statements
+
+
 
 ### Conditional Statements
 
@@ -153,17 +165,29 @@ eg `SUMIF` `SUMIFS` `COUNTIF` `COUNTIFS`
 
 eg `=SUMIF(C3:C14,C17,D3:D14)` The first part is the range to look at, `C17` is the value or text to find, then the sum that match in `D3:D14`
 
-eg `+SUMIF(D118:D122,">=50")` This is is different type of criteria.
+eg `=SUMIF(C3:C14,"Apples",D3:D14)` The first part is the range to look at, `"Apples"` is the value or text to find, then the sum that match in `D3:D14`
+
+eg `=SUMIF(D118:D122,">=50")` This is is different type of criteria.
 
 `SUMIFS` is the same as SUMIF, but it lets you use multiple criteria.
+
+Format is `SUMIFS(sum_range, criteria_range1, criteria1, [criteria_range2, criteria2], ...)`
 
 eg `=SUMIFS(H3:H14,F3:F14,F17,G3:G14,G17)` `H3:H14` is the range to sum, next `F3:F14` is the range to look for matches, `F17` is the criteria, then `G3:G14` is the second range to look for matches, and `G17` is the criteria for the second match.
 
 `COUNTIF` and `COUNTIFS` let you count values in a range based on a criteria you specify. 
 
-`COUNTIF` counts the number of instances in a column/row
+`COUNTIF` counts the number of instances in a column/row. Be sure to enclose the criteria argument in quotes unless its a cell reference. Criteria aren't case sensitive. Wildcard characters —the question mark (?) and asterisk (*)—can be used in criteria. If you want to find an actual question mark or asterisk, type a tilde (~) in front of the character.
 
 eg `COUNTIF(C50:C61,C64)` first is the range to look at, then the value to look for.
+
+eg `COUNTIF(C50:C61,"SpecificWord")` counts the cells that contain SpecificWord.
+
+eg `=COUNTIF(B2:B5,">55")` counts the cells with values greater than 55.
+
+eg `=COUNTIF(A2:A5,"*")` the `*` looks for any cells with text.
+
+eg `=COUNTIF(A2:A5,"?????es")` looks for 7 character words that end in es.
 
 `COUNTIFS` counts the number of instances but with more criteria.
 
