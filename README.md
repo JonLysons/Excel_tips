@@ -43,7 +43,7 @@ First fix the column heads in place
 2. In the new columnn type:
 3. For lower case `=LOWER(cell)` 
 4. For UPPER case `=UPPER(cell)`
-5. FOr Proper Case `=PROPER(cell)`
+5. For Proper Case `=PROPER(cell)`
 
 ### Step 6 To trim extra white spaces from text
 
@@ -76,5 +76,45 @@ First fix the column heads in place
 
 1. Syntax is `VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])`
 2. EG. `=VLOOKUP(A2,'Sheet 2'!A2:B31,2,false)`
+
+## Formulas
+
+### The Basics
+
+To Add, select cell F3, type =C3+C4, then press Return. 
+
+To Subtract, select cell F4, type =C3-C4, then press Return. 
+
+To Multiply, select cell F5, type =C3*C4, then press Return.
+
+To Divide, select cell F6, type =C3/C4, then press Return.
+
+To raise a value to a power, select cell F6, type =C3^F6, then press Return.
+
+To add a range of cells, type =SUM(A1:A6), then press Return. Additional arguments use a comma, eg =SUM(A1:A6,B1:B6)
+
+To count the number of cells, type =COUNT(A1:A6), then press Return.
+
+=MEDIAN(A1:A6) gives the middle number in a list.
+
+=MODE(A1:A6) gives the most common number in a list.
+
+Use the MIN function to get the smallest number in a range of cells. EG =MIN(A1:A6)
+
+Use the MAX function to get the largest number in a range of cells. EG =MAX(A1:A6)
+
+Additional arguments use a comma, eg =MAX(A1:A6,B1:B6)
+
+### Time Functions
+
+To get today's date, type =TODAY(), then press Return.
+
+To get the time, type =NOW(), then press Return.
+
+Add and subtract times, EG =((D35-D32)-(D34-D33))*24 ----- the 24 converts into hours. Make sure that this cell is formatted to Number and not Time.
+
+### Joining and splitting cells
+
+
 
 ## Pivot tables
