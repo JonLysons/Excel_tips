@@ -135,9 +135,44 @@ Shipping is a Named Range and this is set using `Formulas` > `Define Name` This 
 
 ### VLOOKUP Statements
 
-`VLOOKUP` lets you look up a value in a column on the left, then returns information in another column to the right if it finds a match
+`VLOOKUP` lets you look up a value in a column on the left, then returns information in another column to the right if it finds a match.
 
+eg `=VLOOKUP (A12,B12:C22,2,FALSE)` This looks for the data in `A12` and tries to fina a match in the data selected from B12 and C12, if it finds a match it moves to the column next and returns the data in that cell. `FALSE` here means an exact match.
 
+If there isn't a match then `N/A` will be returned. To hide this, use an `IF` statement, eg `=IF(A12="","",VLOOKUP (A12,B12:C22,2,FALSE)`
 
+You can also use an `IFERROR` statement, eg `=IFERROR(VLOOKUP(A12,B12:C22,2,FALSE),"")`
+
+In both cases `""` is used to display nothing, but you can use text, eg `"Nothing to show"`.
+
+### Conditional Statements
+
+eg `SUMIF` `SUMIFS` `COUNTIF` `COUNTIFS`
+
+`SUMIF` lets you sum in one range based on a specific criteria you look for in another range.
+
+eg `=SUMIF(C3:C14,C17,D3:D14)` The first part is the range to look at, `C17` is the value or text to find, then the sum that match in `D3:D14`
+
+eg `+SUMIF(D118:D122,">=50")` This is is different type of criteria.
+
+`SUMIFS` is the same as SUMIF, but it lets you use multiple criteria.
+
+eg `=SUMIFS(H3:H14,F3:F14,F17,G3:G14,G17)` `H3:H14` is the range to sum, next `F3:F14` is the range to look for matches, `F17` is the criteria, then `G3:G14` is the second range to look for matches, and `G17` is the criteria for the second match.
+
+`COUNTIF` and `COUNTIFS` let you count values in a range based on a criteria you specify. 
+
+`COUNTIF` counts the number of instances in a column/row
+
+eg `COUNTIF(C50:C61,C64)` first is the range to look at, then the value to look for.
+
+`COUNTIFS` counts the number of instances but with more criteria.
+
+eg `=COUNTIFS(F50:F61,F64,G50:G61,G64)` so `F50:F61` is the range to count, `F64` is the criteria to match, `G50:G61` is the second range and `G64` is the second criteria to match.
+
+Others include `AVERAGEIF` `AVERAGEIFS` `MAXIFS` and `MINIFS`
+
+### Problems with formulas
+
+If there is an error, use `Error-checking` option under `Formulas` to help with finding a solution. 
 
 ## Pivot tables
