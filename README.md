@@ -155,7 +155,64 @@ In both cases `""` is used to display nothing, but you can use text, eg `"Nothin
 
 ### XLOOKUP Statements
 
+The XLOOKUP function searches a range or an array, and then returns the item corresponding to the first match it finds. If no match exists, then XLOOKUP can return the closest (approximate) match. 
 
+Syntax is `=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])`
+
+| Argument | Description |
+| --- | --- |
+| lookup_value | The value to search for |
+| Required* | *If omitted, XLOOKUP returns blank cells it finds in lookup_array |  
+| --- | --- |
+| lookup_array | The array or range to search |
+| Required |   |
+| --- | --- |
+|return_array | The array or range to return |
+| Required |   |
+| --- | --- |
+[if_not_found] |
+	
+
+
+
+
+
+Optional
+	
+
+Where a valid match is not found, return the [if_not_found] text you supply.
+
+If a valid match is not found, and [if_not_found] is missing, #N/A is returned.
+
+[match_mode]
+
+Optional
+	
+
+Specify the match type:
+
+0 - Exact match. If none found, return #N/A. This is the default.
+
+-1 - Exact match. If none found, return the next smaller item.
+
+1 - Exact match. If none found, return the next larger item.
+
+2 - A wildcard match where *, ?, and ~ have special meaning.
+
+[search_mode]
+
+Optional
+	
+
+Specify the search mode to use:
+
+1 - Perform a search starting at the first item. This is the default.
+
+-1 - Perform a reverse search starting at the last item.
+
+2 - Perform a binary search that relies on lookup_array being sorted in ascending order. If not sorted, invalid results will be returned.
+
+-2 - Perform a binary search that relies on lookup_array being sorted in descending order. If not sorted, invalid results will be returned.
 
 ### Conditional Statements
 
